@@ -32,6 +32,7 @@
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.164.1",
+    "vercel": "^34.2.2",
     "zustand": "https://pkg.csb.dev/pmndrs/zustand/commit/992cedd4/zustand"
   },
   "devDependencies": {
