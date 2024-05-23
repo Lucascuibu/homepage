@@ -1,6 +1,6 @@
 import TopBar from './Topbar';
 import * as THREE from 'three';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 
 function Pic() {
@@ -50,15 +50,15 @@ function Pic() {
       }
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const floor = (() => {
-      const geo = new THREE.PlaneGeometry(20, 20);
-      const mat = new THREE.MeshPhongMaterial({ shininess: 10, color: "#aaa" });
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.rotation.x = Math.PI * -0.5;
-      mesh.receiveShadow = true;
-      scene.add(mesh);
-      return mesh;
-    })();
+    // const floor = (() => {
+    //   const geo = new THREE.PlaneGeometry(20, 20);
+    //   const mat = new THREE.MeshPhongMaterial({ shininess: 10, color: "#aaa" });
+    //   const mesh = new THREE.Mesh(geo, mat);
+    //   mesh.rotation.x = Math.PI * -0.5;
+    //   mesh.receiveShadow = true;
+    //   scene.add(mesh);
+    //   return mesh;
+    // })();
 
     const animate = () => {
       requestAnimationFrame(animate);

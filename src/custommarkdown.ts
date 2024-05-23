@@ -1,4 +1,4 @@
-import { marked, Token } from 'marked';
+import { marked } from 'marked';
 import parse from 'html-react-parser';
 import { useEffect, useState } from "react";
 import 'katex/dist/katex.min.css';
