@@ -8,7 +8,7 @@ function Courses() {
 
         <div className="h-full w-screen flex flex-col p-3">
           <div className=" bg-neutral-100 w-full h-max mb-4">
-            <img src="../public/dgp.png" alt="dgp.png" className='object-contain align-middle' />
+            <img src="/dgp.png" alt="dgp.png" className='object-contain align-middle' />
           </div>
           <div className=" text-sm flex justify-between px-1">
             <p className="">Introduction to Digital Geometry Processing</p>
