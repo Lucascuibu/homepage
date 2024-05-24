@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Pic({ src, alt }: { src: string, alt: string }) {
   return (
-    <img className="aspect-square" src={src} alt={alt} />
+    <img className="aspect-square object-contain" src={src} alt={alt} />
   );
 }
 
@@ -12,7 +12,7 @@ function Photography() {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
   useEffect(() => {
-    axios.get('https://my-cloudflare-worker.chqyy4.workers.dev/')
+    axios.get('https://hangqicui.com/api/photography_image_list')
       .then((response) => {
         const url = response.data.result.images[0].variants[0];
         const arry = new Array(30).fill(url);
