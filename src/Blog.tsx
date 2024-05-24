@@ -68,8 +68,8 @@ const Blog = () => {
          
           <div className="flex gap-4 px-3 hover:cursor-pointer pb-3 w-screen xl:w-2/3 ml-auto">
             <p className="w-1/2" onClick={sortByTitle}>Title</p>
-            <p className="w-1/2" onClick={sortByCategory}>Category</p>
-            <p className="w-[84px]" onClick={sortByDate}>Date</p>
+            <p className="w-1/2 translate-x-1" onClick={sortByCategory}>Category</p>
+            <p className="w-[88px]" onClick={sortByDate}>Date</p>
           </div>
           <div className='w-screen xl:w-2/3 ml-auto'>
 
@@ -81,7 +81,7 @@ const Blog = () => {
                     <circle cx="4" cy="4" r="4" fill="red" />
                   </svg>
                   {blog.category}</p>
-                <p className="w-[84px]">{blog.date}</p>
+                <p className="w-[88px]">{blog.date}</p>
               </div>
             ))}
           </div>
