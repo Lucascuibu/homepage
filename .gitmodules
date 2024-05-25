@@ -1,7 +1,4 @@
-[submodule "public/md"]
-	path = public/md
-	url = git@github.com:Lucascuibu/Notes.git
-	ignore = all
 [submodule "public/Notes"]
 	path = public/Notes
 	url = git@github.com:Lucascuibu/Notes.git
+	ignore = all
