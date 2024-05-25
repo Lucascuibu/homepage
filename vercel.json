@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "update_submodules.sh",
+      "use": "@vercel/static-build"
+    },
+    {
       "src": "api/**/*.js",
       "use": "@vercel/node"
     },
