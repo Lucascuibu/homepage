@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './App.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
-import App from './App.tsx'
+import App from './App.tsx';
 import Courses from './Course.tsx';
 import Photography from './Photography.tsx';
 import Graphics from './Graphics.tsx';
@@ -14,7 +14,6 @@ import Blog from './Blog.tsx';
 import About from './About.tsx';
 import ErrorPage from "./error_page";
 import SingleBlog from './singleblog';
-
 
 const router = createBrowserRouter([
   {
@@ -35,11 +34,11 @@ const router = createBrowserRouter([
     element: <Courses />,
   },
   {
-    path: "/blog",
+    path: "/blogs",
     element: <Blog />,
   },
   {
-    path: "/single",
+    path: '/blog/*',
     element: <SingleBlog />,
   },
   {
@@ -52,4 +51,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
-)
+);

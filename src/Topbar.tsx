@@ -8,7 +8,7 @@ function TopBar() {
                 <a href={`/graphics`}>Graphics</a>
                 <a href={`/courses`}>Courses</a>
                 <a href={`/photography`}>Photography</a>
-                <a href={`/blog`}>Blog</a>
+                <a href={`/blogs`}>Blog</a>
                 {/* <a href={`/single`}>SingleBlog</a> */}
             </div>
 

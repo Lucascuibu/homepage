@@ -17,6 +17,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.3.3)(react@18.3.1)
+      '@types/hash-sum':
+        specifier: ^1.0.2
+        version: 1.0.2
       '@types/lodash':
         specifier: ^4.17.4
         version: 4.17.4
@@ -35,6 +38,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      hash-sum:
+        specifier: ^2.0.0
+        version: 2.0.0
       html-react-parser:
         specifier: ^5.1.10
         version: 5.1.10(@types/react@18.3.3)(react@18.3.1)
@@ -801,6 +807,9 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+
+  '@types/hash-sum@1.0.2':
+    resolution: {integrity: sha512-UP28RddqY8xcU0SCEp9YKutQICXpaAq9N8U2klqF5hegGha7KzTOL8EdhIIV3bOSGBzjEpN9bU/d+nNZBdJYVw==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1729,6 +1738,9 @@ packages:
 
   has-unicode@2.0.1:
     resolution: {integrity: sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==}
+
+  hash-sum@2.0.0:
+    resolution: {integrity: sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==}
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
@@ -3374,6 +3386,8 @@ snapshots:
 
   '@types/estree@1.0.5': {}
 
+  '@types/hash-sum@1.0.2': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/katex@0.16.7': {}
@@ -4421,6 +4435,8 @@ snapshots:
   has-symbols@1.0.3: {}
 
   has-unicode@2.0.1: {}
+
+  hash-sum@2.0.0: {}
 
   hasown@2.0.2:
     dependencies:

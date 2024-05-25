@@ -1,55 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopBar from './Topbar';
+import { useNavigate } from 'react-router-dom';
+import f2 from './usefilesystem';
 
-class FileSystemItem {
-  constructor(name) {
-    this.name = name;
-  }
-}
 
-class File extends FileSystemItem {
-  constructor(name) {
-    super(name);
-    this.type = 'file';
-  }
-}
+console.log(f2);
+// 展平结构
 
-class Directory extends FileSystemItem {
-  constructor(name, contents = []) {
-    super(name);
-    this.type = 'directory';
-    this.contents = contents;
-  }
-}
-
-function parseFileSystem(json) {
-  if (json.type === 'file') {
-    return new File(json.name);
-  } else if (json.type === 'directory') {
-    const contents = json.contents.map(parseFileSystem);
-    return new Directory(json.name, contents);
-  }
-}
-
-async function fetchAndParseFileSystem(url) {
-  console.log('Fetching JSON from URL:', url);
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const json = await response.json();
-    console.log(json);
-    const fileSystem = parseFileSystem(json);
-    console.log(fileSystem);
-    return fileSystem;
-  } catch (error) {
-    console.error('Failed to fetch or parse JSON:', error);
-  }
-}
-
-const fetchedFileSystem = async() => await fetchAndParseFileSystem("http://10.0.0.106:8080/structure.json");
-      console.log(fetchedFileSystem);
 
 const initialBlogList = [
   { title: "Blog 1", category: "Category 1", date: "2021-07-01" },
@@ -73,8 +30,9 @@ enum SortMethod {
 
 const Blog = () => {
   const [blogList, setBlogList] = useState(expandedBlogList);
-  const [fileSystem, setFileSystem] = useState(null);
+
   const [, setCurSort] = useState(SortMethod.TITLE);
+
 
   const sortByTitle = () => {
     setCurSort(SortMethod.TITLE);
@@ -90,14 +48,16 @@ const Blog = () => {
     setCurSort(SortMethod.DATE);
     setBlogList([...blogList].sort((a, b) => a.date.localeCompare(b.date)));
   };
+  const navigate = useNavigate();
+  const handleNavigation = (id: string) => {
+    navigate(`/blog/${id}`);
+  };
+
+  // const { fileSystem, flattenedFileSystem, flattenFileSystem,findItemByID } = useFileSystemStore();
 
   // useEffect(() => {
-  //   const fetchData = async () => {
-      
-  //     setFileSystem(fetchedFileSystem); // Store the fetched file system in state
-  //   };
-  //   fetchData();
-  // }, []);
+  //     flattenFileSystem();
+  // }, [fileSystem, flattenFileSystem]);
 
   return (
     <>
@@ -120,27 +80,31 @@ const Blog = () => {
             <p className="w-1/3 translate-x-1 lg:w-1/4" onClick={sortByCategory}>Category</p>
             <p className="w-[92px]" onClick={sortByDate}>Date</p>
           </div>
+
+
           <div className='w-screen xl:w-2/3 ml-auto'>
-            {blogList.map((blog, index) => (
-              <div key={index} className="flex justify-between font-normal gap-4 px-3 hover:font-semibold hover:text-neutral-500 hover:underline cursor-pointer">
-                <p className="w-1/4">{blog.title}</p>
-                <p className="w-1/3 lg:w-1/2 translate-x-1"></p>
+            {f2.map((blog, index) => (
+              <div onClick={() => handleNavigation(blog.id!)}
+                key={index}
+                className="flex justify-between font-normal gap-4 px-3 hover:font-semibold hover:text-neutral-500 hover:underline cursor-pointer">
+                <p className="w-1/4">{blog.name}</p>
+                <p className="w-1/3 lg:w-1/2 translate-x-1">{blog.id}</p>
                 <p className="w-1/3 lg:w-1/4 flex -translate-x-1">
                   <svg className='size-2 translate-y-1 -translate-x-1'>
                     <circle cx="4" cy="4" r="4" fill="red" />
                   </svg>
-                  {blog.category}
+                  {blog.path}
                 </p>
-                <p className="w-[92px]">{blog.date}</p>
+                <p className="w-[92px]">{blog.path}</p>
               </div>
             ))}
           </div>
           <div className="h-4"></div>
         </div>
         {/* Optionally render file system structure for debugging */}
-        <div className="debug">
+        {/* <div className="debug">
           <pre>{JSON.stringify(fileSystem, null, 2)}</pre>
-        </div>
+        </div> */}
       </div>
     </>
   );

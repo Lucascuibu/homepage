@@ -42,21 +42,21 @@ const tokenizer = {
 
 
 
-
 export const ParsedMarkdown = ({ url }: { url: string }) => {
     const options = {
         throwOnError: false
     };
-    marked.use(markedKatex(options))
-    marked.use({ renderer });
-    marked.use({ tokenizer });
-    // marked.use({ walkTokens });
+    marked.use(markedKatex(options));
 
     const [htmlContent, setHtmlContent] = useState("");
+
     useEffect(() => {
         const fetchMarkdown = async () => {
             try {
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Error fetching markdown: ${response.statusText}`);
+                }
                 const text = await response.text();
                 const parsedContent = marked.parse(text);
                 setHtmlContent(parsedContent.toString());
