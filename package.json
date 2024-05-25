@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@types/hash-sum": "^1.0.2",
     "@types/lodash": "^4.17.4",
+    "@types/marked": "^6.0.0",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
