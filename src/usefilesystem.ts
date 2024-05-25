@@ -1,7 +1,7 @@
 // import create, { StateCreator } from 'zustand';
 // import { persist } from 'zustand/middleware';
 import hashSum from 'hash-sum';
-import structure from '../public/Notes/structure.json';
+import structure from '/src/asset/Notes/structure.json';
 
 
 const f = JSON.parse(JSON.stringify(structure)) as FileTree;
