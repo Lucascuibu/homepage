@@ -1,5 +1,5 @@
-import create, { StateCreator } from 'zustand';
-import { persist } from 'zustand/middleware';
+// import create, { StateCreator } from 'zustand';
+// import { persist } from 'zustand/middleware';
 import hashSum from 'hash-sum';
 import structure from '../public/Notes/structure.json';
 
@@ -25,12 +25,12 @@ interface Directory extends FileSystemItem {
 
 type FileTree = File | Directory;
 
-interface FileSystemStore {
-  fileSystem: FileTree;
-  flattenedFileSystem: FileSystemItem[];
-  flattenFileSystem: () => void;
-  findItemByID: (id: string) => FileSystemItem | undefined;
-}
+// interface FileSystemStore {
+//   fileSystem: FileTree;
+//   flattenedFileSystem: FileSystemItem[];
+//   flattenFileSystem: () => void;
+//   findItemByID: (id: string) => FileSystemItem | undefined;
+// }
 
 const flattenFileSystemHelper = (item: FileSystemItem): FileSystemItem[] => {
   item.id = hashSum(item.path);
@@ -59,37 +59,37 @@ const findItemByIDHelper = (id: string, item: FileSystemItem): FileSystemItem | 
   return undefined;
 };
 
-const useFileSystemStore = create<FileSystemStore>(
-  persist<FileSystemStore>(
-    (set, get) => ({
-      fileSystem: f,
-      flattenedFileSystem: [],
-      flattenFileSystem: () => {
-        const fileSystem = get().fileSystem;
-        // console.log("Current file system in store:", fileSystem);
-        const flattened = flattenFileSystemHelper(fileSystem);
-        // console.log("Flattened file system:", flattened);
-        set({ flattenedFileSystem: flattened });
-      },
-      findItemByID: (id: string) => {
-        const fileSystem = get().fileSystem;
-        return findItemByIDHelper(id, fileSystem);
-      },
-    }),
-    {
-      name: 'file-system-storage',
-      getStorage: () => localStorage, // 确保我们使用的是localStorage
-      serialize: (state) => {
-        // console.log("Serializing state:", state);
-        return JSON.stringify(state);
-      },
-      deserialize: (str) => {
-        const state = JSON.parse(str);
-        // console.log("Deserialized state:", state);/
-        return state;
-      },
-    }
-  ) as StateCreator<FileSystemStore, [], []>
-);
+// const useFileSystemStore = create<FileSystemStore>(
+//   persist<FileSystemStore>(
+//     (set, get) => ({
+//       fileSystem: f,
+//       flattenedFileSystem: [],
+//       flattenFileSystem: () => {
+//         const fileSystem = get().fileSystem;
+//         // console.log("Current file system in store:", fileSystem);
+//         const flattened = flattenFileSystemHelper(fileSystem);
+//         // console.log("Flattened file system:", flattened);
+//         set({ flattenedFileSystem: flattened });
+//       },
+//       findItemByID: (id: string) => {
+//         const fileSystem = get().fileSystem;
+//         return findItemByIDHelper(id, fileSystem);
+//       },
+//     }),
+//     {
+//       name: 'file-system-storage',
+//       getStorage: () => localStorage, // 确保我们使用的是localStorage
+//       serialize: (state) => {
+//         // console.log("Serializing state:", state);
+//         return JSON.stringify(state);
+//       },
+//       deserialize: (str) => {
+//         const state = JSON.parse(str);
+//         // console.log("Deserialized state:", state);/
+//         return state;
+//       },
+//     }
+//   ) as StateCreator<FileSystemStore, [], []>
+// );
 
 // export default useFileSystemStore;

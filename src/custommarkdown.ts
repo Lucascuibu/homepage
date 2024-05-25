@@ -5,7 +5,7 @@ import 'katex/dist/katex.min.css';
 import markedKatex from "marked-katex-extension";
 
 
-const renderer = {
+// const renderer = {
     // heading(text: string, level: number) {
     //     const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
@@ -17,9 +17,9 @@ const renderer = {
     //                 ${text}
     //             </h${level}>`;
     // }
-};
+// };
 
-const tokenizer = {
+// const tokenizer = {
     // codespan(src: string) {
     //     const match = src.match(/^\$+([^\\$\n]+?)\$+/);
     //     if (match) {
@@ -33,7 +33,7 @@ const tokenizer = {
     //     // return false to use original codespan tokenizer
     //     return false;
     // }
-};
+// };
 // const walkTokens = (token: Token) => {
 //     if (token.type === 'heading') {
 //         token.depth += 1;
