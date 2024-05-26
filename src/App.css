@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -36,8 +37,8 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 240 10% 10%;
+    --foreground: 0 0% 92%;
 
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -71,6 +72,9 @@
     @apply border-border;
   }
   body {
+    @apply bg-background text-foreground;
+  }
+  html{
     @apply bg-background text-foreground;
   }
 }

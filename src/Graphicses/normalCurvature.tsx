@@ -43,8 +43,8 @@ function Bunny() {
         const height = mount!.clientHeight;
 
         const scene = new THREE.Scene();
-        const bg = new THREE.Color('white');
-        scene.background = new THREE.Color(bg);
+        // const bg = new THREE.Color('white');
+        // scene.background = new THREE.Color(bg);
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 
         const renderer = new THREE.WebGLRenderer();

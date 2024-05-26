@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export const darkMode = ["class"];
 export const content = [
   './pages/**/*.{ts,tsx}',
@@ -7,6 +8,7 @@ export const content = [
   './src/**/*.{ts,tsx}',
 ];
 export const prefix = "";
+
 export const theme = {
   container: {
     center: true,
@@ -16,6 +18,10 @@ export const theme = {
     },
   },
   extend: {
+    aspectRatio: {
+      '4/3': '4 / 3',
+      '2/1': '2/1',
+    },
     screens: {
       '3xl': '1920px', // 例如：设定 3xl 为 1920px 或者你所需要的尺寸
     },
@@ -76,4 +82,4 @@ export const theme = {
   },
 };
 // eslint-disable-next-line no-undef
-export const plugins = [require("tailwindcss-animate")];
+export const plugins = [require("tailwindcss-animate"),  require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')];

@@ -10,6 +10,8 @@ interface FileSystemItem {
   type: 'file' | 'directory';
   name: string;
   path: string;
+  category?: string;
+  time: string;
 }
 
 interface File extends FileSystemItem {
@@ -26,6 +28,7 @@ type FileTree = File | Directory;
 
 const flattenFileSystemHelper = (item: FileSystemItem): FileSystemItem[] => {
   item.id = hashSum(item.path);
+  item.category = item.path.split('/')[2];
   if (item.type === 'file') {
     return [item];
   } else {

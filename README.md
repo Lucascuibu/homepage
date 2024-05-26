@@ -1,6 +1,7 @@
-# Repo of www.hangqicui.com 
+# Repo of www.hangqicui.com
 
 ## Tech Stack
+
 - React
 - TypeScript
 - TailwindCSS
@@ -8,6 +9,4 @@
 - Pnpm
 - Vercel
 - Cloudflare
-
-## On porgress
-- ocaml file system
+- Ocaml is used to build a simple file system, maybe shell is better

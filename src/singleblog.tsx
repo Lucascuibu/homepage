@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import TopBar from './Topbar';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 import { ParsedMarkdown } from './custommarkdown';
@@ -8,7 +7,7 @@ import f2 from './usefilesystem';
 
 function Navibar() {
     return (
-        <div className='flex justify-between px-8 pt-3 font-semibold text-neutral-400 text-xl *:cursor-pointer hover:*:text-neutral-900'>
+        <div className='flex justify-between px-8  font-semibold text-neutral-400 text-xl *:cursor-pointer hover:*:text-neutral-900'>
             <div>prev
                 <ArrowLongLeftIcon className="size-6 text-black -translate-y-3 -translate-x-[7px]" />
             </div>
@@ -18,7 +17,8 @@ function Navibar() {
         </div>
     );
 }
-console.log(f2);
+
+
 function findpathByID(id: string) {
     for (const item of f2) {
         if (item.id === id) {
@@ -35,13 +35,13 @@ const SingleBlog = () => {
     }
     const fullPath = `/${findpathByID(id)}`;
     return (
-        <div className="h-screen text-xs font-normal pt-10 relative">
-            <TopBar />
+        <>
             <Navibar />
-            <div className='px-12 pb-12 markdown-content'>
+            <div className='px-12 pb-12 markdown-content w-full max-w-screen-lg mx-auto'>
                 <ParsedMarkdown url={fullPath} />
             </div>
-        </div>
+        </>
+
     );
 }
 

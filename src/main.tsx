@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Home from './home.tsx';
 import App from './App.tsx';
 import Courses from './Course.tsx';
 import Photography from './Photography.tsx';
@@ -20,30 +21,36 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/graphics",
-    element: <Graphics />,
-  },
-  {
-    path: "/photography",
-    element: <Photography />,
-  },
-  {
-    path: "/courses",
-    element: <Courses />,
-  },
-  {
-    path: "/blogs",
-    element: <Blog />,
-  },
-  {
-    path: '/blog/*',
-    element: <SingleBlog />,
-  },
-  {
-    path: "/about",
-    element: <About />,
+    children: [
+      {
+        index: true, // 设置默认路由
+        element: <Home />,
+      },
+      {
+        path: "graphics",
+        element: <Graphics />,
+      },
+      {
+        path: "photography",
+        element: <Photography />,
+      },
+      {
+        path: "courses",
+        element: <Courses />,
+      },
+      {
+        path: "blogs",
+        element: <Blog />,
+      },
+      {
+        path: "blog/*",
+        element: <SingleBlog />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 
