@@ -34,10 +34,6 @@ const SingleBlog = () => {
         return <div>id is not defined</div>;
     }
     const fullPath = `/${findpathByID(id)}`;
-    console.log(fullPath);
-    const p = '/Notes/Notes/tst.2.md'
-
-
     return (
         <div className="h-screen text-xs font-normal pt-10 relative">
             <TopBar />
