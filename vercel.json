@@ -5,6 +5,9 @@
       "main": true
     }
   },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
   "headers": [
     {
       "source": "/(.*).js",
