@@ -18,6 +18,7 @@ function Navibar() {
         </div>
     );
 }
+console.log(f2);
 function findpathByID(id: string) {
     for (const item of f2) {
         if (item.id === id) {
@@ -32,9 +33,9 @@ const SingleBlog = () => {
     if (!id) {
         return <div>id is not defined</div>;
     }
-    const fullPath = `./asset/${findpathByID(id)}`;
+    const fullPath = `/${findpathByID(id)}`;
     console.log(fullPath);
-    const p = './asset/Notes/Notes/TopicsA/tst.md'
+    const p = '/Notes/Notes/tst.2.md'
 
 
     return (
@@ -42,7 +43,7 @@ const SingleBlog = () => {
             <TopBar />
             <Navibar />
             <div className='px-12 pb-12 markdown-content'>
-                <ParsedMarkdown url={p} />
+                <ParsedMarkdown url={fullPath} />
             </div>
         </div>
     );

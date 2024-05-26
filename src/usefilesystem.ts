@@ -1,5 +1,5 @@
 import hashSum from 'hash-sum';
-import structure from '/src/asset/Notes/structure.json';
+import structure from '/public/Notes/structure.json';
 
 
 const f = JSON.parse(JSON.stringify(structure)) as FileTree;

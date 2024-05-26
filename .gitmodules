@@ -1,0 +1,3 @@
+[submodule "public/Notes"]
+	path = public/Notes
+	url = https://github.com/Lucascuibu/Notes.git
