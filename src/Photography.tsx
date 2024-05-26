@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { url } from 'inspector';
 
 
 const contain_flag = false;
@@ -13,6 +14,14 @@ function Pic({ src, alt }: { src: string, alt: string }) {
     />
   );
 }
+interface urllst {
+  filename: string
+  id: string
+  requireSignedURLs: boolean
+  variants: string[]
+  uploaded: string
+}
+
 
 function Photography() {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -20,8 +29,8 @@ function Photography() {
   useEffect(() => {
     axios.get('https://hangqicui.com/api/photography_image_list')
       .then((response) => {
-        const url = response.data.result.images[0].variants[0];
-        const arry = new Array(30).fill(url);
+        const urlist: urllst[] = response.data.result.images;
+        const arry = urlist.flatMap((url) => url.variants)
         setImageUrls(arry);
       })
       .catch((error) => {
@@ -33,7 +42,7 @@ function Photography() {
     <>
       <div className='hidden xl:w-1/3 xl:flex absolute ml-1 h-max pt-12'>
         <div className='overflow-hidden aspect-square'>
-          <img className="object-fill" src="https://plus.unsplash.com/premium_photo-1666788168087-eff21b648ddd?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="photography" />
+          <img className="object-fill" src={imageUrls[0]} alt="photography" />
         </div>
       </div>
 
