@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-const contain_flag = false;
+const contain_flag = true;
 // const view_mode_flag = false;
 function Pic({ src, alt }: { src: string, alt: string }) {
   return (
     <img
-      className={`aspect-square object-cover ${contain_flag ? "object-contain" : "object-cover"}`}
+      className={`aspect-square mx-auto ${contain_flag ? "object-contain" : "object-cover"}`}
       src={src}
       alt={alt}
     />
@@ -40,8 +40,8 @@ function Photography() {
   return (
     <>
       <div className='hidden xl:w-1/3 xl:flex absolute ml-1 h-max pt-12'>
-        <div className='overflow-hidden aspect-square'>
-          <img className="object-fill" src={imageUrls[0]} alt="photography" />
+        <div className='aspect-square justify-center mx-auto'>
+          <Pic src={imageUrls[0]} alt="photography" />
         </div>
       </div>
 
