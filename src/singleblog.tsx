@@ -32,14 +32,17 @@ const SingleBlog = () => {
     if (!id) {
         return <div>id is not defined</div>;
     }
-    const fullPath = `../public/${findpathByID(id)}`;
+    const fullPath = `./asset/${findpathByID(id)}`;
+    console.log(fullPath);
+    const p = './asset/Notes/Notes/TopicsA/tst.md'
+
 
     return (
         <div className="h-screen text-xs font-normal pt-10 relative">
             <TopBar />
             <Navibar />
             <div className='px-12 pb-12 markdown-content'>
-                <ParsedMarkdown url={fullPath} />
+                <ParsedMarkdown url={p} />
             </div>
         </div>
     );
