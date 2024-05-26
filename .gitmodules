@@ -1,4 +1,0 @@
-[submodule "public/Notes"]
-	path = src/asset/Notes
-	url = https://github.com/Lucascuibu/Notes.git
-	ignore = all
