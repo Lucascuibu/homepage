@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="min-h-screen w-screen text-xs font-normal pt-10  bg-background text-foreground">
+      <div className="min-h-screen w-screen text-sm font-normal bg-background text-foreground">
         <TopBar />
         <Outlet />
       </div>

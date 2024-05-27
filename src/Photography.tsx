@@ -46,7 +46,7 @@ function Photography() {
       </div>
 
       <div className="h-full w-screen xl:w-2/3 px-1 xl:ml-auto xl:pl-2">
-        <div className='grid grid-cols-5 xl:grid-cols-6 gap-0.5'>
+        <div className='grid grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-0.5'>
           {imageUrls.map((url, index) => (
             url ? <Pic key={index} src={url} alt={`Photography ${index + 1}`} /> : <div key={index} className="aspect-square bg-gray-200"></div>
           ))}
