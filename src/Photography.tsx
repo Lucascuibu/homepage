@@ -29,7 +29,6 @@ function Photography() {
   const [loading, setLoading] = useState<boolean>(true);
   const [displayindex, setDisplayIndex] = useState<number>(0);
   const { ref, inView } = useInView({
-    threshold: 1,
     triggerOnce: false,
   });
 
@@ -49,9 +48,10 @@ function Photography() {
   }, []);
 
   useEffect(() => {
-
+    console.log('Visible images:', visibleUrls.length);
+    console.log(inView);
     if (inView && !loading && imageUrls.length > visibleUrls.length) {
-      setLoading(true); // Start loading before the async operation to prevent re-triggering
+      setLoading(true);
       const nextPage = page + 1;
       const newUrls = imageUrls.slice(visibleUrls.length, visibleUrls.length + 10); // Only load the next 10 images
       setVisibleUrls(prevUrls => [...prevUrls, ...newUrls]); // Append new images to the existing visible images
@@ -66,7 +66,7 @@ function Photography() {
       <div className='hidden xl:w-1/3 xl:flex fixed ml-1 my-auto pt-12 '>
         <div className='aspect-square justify-center mx-auto border-0'>
           <img
-            className={`aspect-square w-full h-full relative cursor-pointer  mx-auto ${contain_flag ? "object-contain" : "object-cover"}`}
+            className={`aspect-square w-full h-max relative cursor-pointer  mx-auto ${contain_flag ? "object-contain" : "object-cover"}`}
             src={visibleUrls[displayindex]}
             alt={`Photography ${displayindex + 1}`}
           />
@@ -80,8 +80,10 @@ function Photography() {
               : <div key={index} className="aspect-square bg-gray-200"></div>
           ))}
         </div>
+
       </div>
-      <div className='w-screen' ref={ref}></div>
+      <div className='w-screen h-1' ref={ref}></div>
+
 
     </>
   );
