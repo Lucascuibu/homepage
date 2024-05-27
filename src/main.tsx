@@ -16,6 +16,8 @@ import About from './About.tsx';
 import ErrorPage from "./error_page";
 import SingleBlog from './singleblog';
 
+import { Analytics } from "@vercel/analytics/react"
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,5 +59,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Analytics />
   </React.StrictMode>,
 );
