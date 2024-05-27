@@ -6,7 +6,7 @@ function Graphics() {
   return (
     <>
       <div className="h-full w-screen p-1">
-        <div className='grid grid-cols-2 xl:grid-cols-3 gap-0.5 '>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-0.5 '>
           {pics.map((PicComponent, index) => (
             <PicComponent key={index} />
           ))}

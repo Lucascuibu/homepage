@@ -1,9 +1,7 @@
 import hashSum from 'hash-sum';
 import structure from '/public/Notes/structure.json';
 
-
 const f = JSON.parse(JSON.stringify(structure)) as FileTree;
-console.log("Initial structure:", f);
 
 interface FileSystemItem {
   id?: string;
@@ -40,7 +38,6 @@ const flattenFileSystemHelper = (item: FileSystemItem): FileSystemItem[] => {
 
 const f2 = flattenFileSystemHelper(f);
 export default f2;
-console.log("Flattened structure:", f2);
 
 const findItemByIDHelper = (id: string, item: FileSystemItem): FileSystemItem | undefined => {
   if (item.id === id) {
