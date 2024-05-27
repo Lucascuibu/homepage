@@ -6,7 +6,6 @@ import { HalfedgeDS } from 'three-mesh-halfedge';
 
 function createbufferattribute(vecdata: number[][], mesh: THREE.Mesh) {
     const buffer = new Float32Array(vecdata.flat());
-    console.log(buffer);
     const attribute = new THREE.BufferAttribute(buffer, 3);
     mesh.geometry.setAttribute('color', attribute);
 }

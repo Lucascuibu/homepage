@@ -130,7 +130,7 @@ function TopBar() {
                     </div>
                 </Dialog>
             </Transition>
-            <div className=" sticky z-40 transition duration-500 uppercase top-0 w-screen h-12 xl:h-14 border-black flex px-3 xl:px-6 xl:text-bse items-center justify-between xl:justify-normal">
+            <div className=" sticky z-40 transition duration-500 uppercase top-0 w-screen h-12 xl:h-14 bg-background border-black flex px-3 xl:px-6 xl:text-bse items-center justify-between xl:justify-normal">
                 <a href={`/`} className="hover:text-neutral-400 cursor-pointer xl:w-1/6">CHQYY4</a>
                 <div className="md:flex gap-3 md:gap-4 hover:*:text-neutral-400 *:cursor-pointer xl:w-1/2 overflow-auto hidden ">
                     <a href={`/graphics`}>Graphics</a>
@@ -143,7 +143,7 @@ function TopBar() {
                     {/* <Switch onClick={toggleDarkMode} id="airplane-mode" className="-translate-x-5 border border-foreground" /> */}
                     <a href={`/about`} className="hover:text-neutral-400 cursor-pointer -translate-x-2 xl:ml-auto hidden md:flex">About</a>
                 </div>
-                <button type="button" className="-m-2.5 p-2.5 text-gray-700 md:hidden" onClick={() => setSidebarOpen(true)}>
+                <button type="button" className="-m-2.5 p-2.5 text-foreground md:hidden" onClick={() => setSidebarOpen(true)}>
                     <span className="sr-only">Open sidebar</span>
                     <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                 </button>

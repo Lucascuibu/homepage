@@ -10,8 +10,8 @@ function Shader() {
         const init = () => {
             // 创建场景
             scene = new THREE.Scene();
-            const bg = new THREE.Color('white');
-            scene.background = new THREE.Color(bg);
+            // const bg = new THREE.Color('white');
+            // scene.background = new THREE.Color(bg);
 
 
             // 创建相机
