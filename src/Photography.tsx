@@ -48,8 +48,8 @@ function Photography() {
   }, []);
 
   useEffect(() => {
-    console.log('Visible images:', visibleUrls.length);
-    console.log(inView);
+    // console.log('Visible images:', visibleUrls.length);
+    // console.log(inView);
     if (inView && !loading && imageUrls.length > visibleUrls.length) {
       setLoading(true);
       const nextPage = page + 1;
@@ -63,18 +63,18 @@ function Photography() {
 
   return (
     <>
-      <div className='hidden xl:w-1/3 xl:flex fixed ml-1 my-auto pt-12 '>
-        <div className='aspect-square justify-center mx-auto border-0'>
+      <div className='hidden xl:w-1/3 xl:flex fixed ml-1 my-auto mt-16 justify-center mx-auto bordr'>
+        {/* <div className=' '> */}
           <img
             className={`aspect-square w-full h-max relative cursor-pointer  mx-auto ${contain_flag ? "object-contain" : "object-cover"}`}
             src={visibleUrls[displayindex]}
             alt={`Photography ${displayindex + 1}`}
           />
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="w-screen xl:w-2/3 px-1 xl:ml-auto xl:pl-2 pt-3">
-        <div className='grid grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-0.5 *:overflow-clip'>
+        <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-0.5 *:overflow-clip'>
           {visibleUrls.map((url, index) => (
             url ? <Pic key={index} src={url} alt={`Photography ${index + 1}`} onClick={() => setDisplayIndex(index)} />
               : <div key={index} className="aspect-square bg-gray-200"></div>
