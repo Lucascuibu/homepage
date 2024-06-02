@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 import { ParsedMarkdown } from './custommarkdown';
-import f2 from './usefilesystem';
+import { findpathByID, f2 } from './usefilesystem';
 
 
 function Navibar() {
@@ -19,29 +19,21 @@ function Navibar() {
 }
 
 
-function findpathByID(id: string) {
-    for (const item of f2) {
-        if (item.id === id) {
-            return item.path;
-        }
-    }
-    return undefined;
-
-}
 const SingleBlog = () => {
     const { '*': id } = useParams<{ '*': string }>();
     if (!id) {
         return <div>id is not defined</div>;
     }
-    const fullPath = `/${findpathByID(id)}`;
+
+    const fullPath = `../public/Notes/${findpathByID(id, f2)}`;
+
     return (
         <>
             <Navibar />
             <div className='px-12 pb-12 markdown-content w-full max-w-screen-lg mx-auto'>
-                <ParsedMarkdown url={fullPath} />
+                <ParsedMarkdown url={fullPath!} />
             </div>
         </>
-
     );
 }
 

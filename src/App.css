@@ -86,7 +86,7 @@
   @apply text-3xl font-bold
 }
 .markdown-content h2{
-  @apply text-2xl font-bold
+  @apply text-2xl font-bold pb-8
 
 }
 .markdown-content h3{
@@ -106,13 +106,12 @@
 }
 
 .markdown-content p {
-  margin-bottom: 1em;
+  @apply mb-8
 }
 
 .markdown-content ul,
 .markdown-content ol {
-  padding-left: 2em;
-  margin-bottom: 1em;
+  @apply ml-8 mb-8
 }
 
 .markdown-content ul li,
@@ -122,15 +121,16 @@
 
 .markdown-content code {
   background-color: #f8f8f8;
-  border: 1px solid #e1e1e1;
   padding: 2px 4px;
   border-radius: 4px;
 }
 
 .markdown-content pre {
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8;
   border: 1px solid #e1e1e1;
   padding: 10px;
   border-radius: 4px;
   overflow: auto;
+  margin-bottom: 2rem */
+  @apply p-2.5 border rounded-md bg-neutral-100 mb-6 text-sm
 }

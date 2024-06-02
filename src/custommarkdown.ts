@@ -19,6 +19,11 @@ import markedKatex from "marked-katex-extension";
     // }
 // };
 
+const renderer = new marked.Renderer();
+// renderer.image = function (href, title, text) {
+//     const imagePath = path.join(__dirname, 'images', encodeURIComponent(href));
+//     return `<img src="${imagePath}" alt="${text}" title="${title}" />`;
+// };
 // const tokenizer = {
     // codespan(src: string) {
     //     const match = src.match(/^\$+([^\\$\n]+?)\$+/);
@@ -46,6 +51,8 @@ export const ParsedMarkdown = ({ url }: { url: string }) => {
     const options = {
         throwOnError: false
     };
+
+    marked.use({ renderer });
     marked.use(markedKatex(options));
 
     const [htmlContent, setHtmlContent] = useState("");
