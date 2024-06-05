@@ -6,7 +6,7 @@ import { HalfedgeDS } from 'three-mesh-halfedge';
 import { Canvas, useFrame,useLoader } from '@react-three/fiber'
 import { Clouds, Cloud, CameraShake, Environment, OrbitControls, ContactShadows, PerspectiveCamera } from "@react-three/drei"
 import { CuboidCollider, BallCollider, Physics, RigidBody } from "@react-three/rapier"
-import { random } from "maath"
+// import { random } from "maath"
 
 function createbufferattribute(vecdata: number[][], mesh: THREE.Mesh) {
     const buffer = new Float32Array(vecdata.flat());
@@ -84,7 +84,7 @@ function ColorfulBunny() {
 //     )
 // }
 
-const context = createContext();
+// const context = createContext();
 function Bunny() {
     const shake = useRef()
     return (
@@ -93,7 +93,7 @@ function Bunny() {
                 <OrbitControls />
                 <ambientLight intensity={1} />
                 <pointLight position={[10, 10, 10]} />
-                <context.Provider value={shake}>
+                {/* <context.Provider value={shake}> */}
                     {/* <CameraShake ref={shake} decay decayRate={0.95} maxYaw={0.05} maxPitch={0.01} yawFrequency={4} pitchFrequency={2} rollFrequency={2} intensity={0} /> */}
                     <Clouds limit={400} material={THREE.MeshLambertMaterial}>
                         <Physics gravity={[0, 0, 0]}>
@@ -106,7 +106,7 @@ function Bunny() {
                             <CuboidCollider position={[0, -15, 0]} args={[400, 10, 400]} /> */}
                         </Physics>
                     </Clouds>
-                </context.Provider>
+                {/* </context.Provider> */}
                 <Suspense fallback={null}>
                     <ColorfulBunny />
                 </Suspense>
