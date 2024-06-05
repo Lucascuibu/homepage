@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import _ from 'lodash';
 
 import { isWebGLSupported, isWebGL2Supported } from 'webgl-detector';
-import { OrbitControls, PerspectiveCamera, TrackballControls } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { VertexNormalsHelper } from 'three/addons/helpers/VertexNormalsHelper.js';
@@ -176,6 +176,7 @@ function updateNormals(mesh: Core.Mesh, geometry: Core.Geometry, normalsType: st
 
 function SceneContent() {
     const { normalsType, plotType, showNormals, showWireframe, useBasicMaterial } = useNormalStore();
+    console.log( showNormals, showWireframe);
     const { scene } = useThree();
     let polygonSoup = MeshIO.readOBJ(bunny);
     // eslint-disable-next-line react-hooks/exhaustive-deps
