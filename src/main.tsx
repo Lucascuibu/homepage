@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from './home.tsx';
-import App from './App.tsx';
-import Courses from './Course.tsx';
-import Photography from './Photography.tsx';
-import Graphics from './Graphics.tsx';
-import Blog from './Blog.tsx';
-import About from './About.tsx';
-import ErrorPage from "./error_page";
-import SingleBlog from './singleblog';
+// 使用 lazy 加载页面组件
+const Home = lazy(() => import('./pages/home.tsx'));
+const App = lazy(() => import('./components/App'));
+const Courses = lazy(() => import('./pages/Course'));
+const Photography = lazy(() => import('./pages/Photography'));
+const Graphics = lazy(() => import('./pages/Graphics'));
+const Blog = lazy(() => import('./pages/Blog'));
+const About = lazy(() => import('./pages/About'));
+const ErrorPage = lazy(() => import("./pages/error_page.tsx"));
+const SingleBlog = lazy(() => import('./pages/singleblog.tsx'));
 
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
+// 定义路由
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true, // 设置默认路由
+        index: true,
         element: <Home />,
       },
       {
@@ -56,9 +55,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+// 渲染应用
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <Analytics />
-  </React.StrictMode>,
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+      <Analytics />
+    </Suspense>
+  </React.StrictMode>
 );

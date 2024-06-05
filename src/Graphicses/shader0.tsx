@@ -163,7 +163,7 @@ function Shader() {
 
     return (
         <>
-            <div className="aspect-square border-black border relative" ref={containerRef}>
+            <div className=" relative" ref={containerRef}>
                 <p className='absolute bottom-2 left-3'>Phong lighting:?</p>
             </div>
         </>

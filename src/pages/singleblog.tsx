@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
-import { ParsedMarkdown } from './custommarkdown';
-import { findpathByID, f2 } from './usefilesystem';
+import { ParsedMarkdown } from '../utils/custommarkdown';
+import { findpathByID, f2 } from '../utils/usefilesystem';
 
 
 function Navibar() {

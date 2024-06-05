@@ -1,5 +1,5 @@
 import hashSum from "hash-sum";
-import structure from "../public/Notes//structure.json";
+import structure from "../../public/Notes/structure.json";
 
 export interface FileSystemItem {
   id?: string;

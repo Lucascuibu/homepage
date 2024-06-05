@@ -1,4 +1,6 @@
-function Home() {
+
+import React from 'react';
+const Home: React.FC = () => {
     return (
         <>
             <div className="h-full w-screen flex flex-col p-3">
