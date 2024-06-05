@@ -1,7 +1,7 @@
 "use strict";
 
 class EmscriptenMemoryManager {
-	objectList: Object[];
+	objectList: object[];
 	/**
 	 * This class serves as a semi automatic memory manager/garbage collector
 	 * for objects that internally store data and perform operations on the {@link http://emscripten.org emscripten}
@@ -36,7 +36,7 @@ class EmscriptenMemoryManager {
 	 * @param {Object[]} exceptList Array of objects allocated on the emscripten heap
 	 * that should not to be deleted.
 	 */
-	deleteExcept(exceptList: Object[]): void {
+	deleteExcept(exceptList: object[]): void {
         for (let object of this.objectList) {
             let deleteObject = true;
 

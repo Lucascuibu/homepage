@@ -407,6 +407,7 @@ function indexElements(elementList: any[]) {
 	return index;
 }
 function alert(arg0: string) {
+	console.log(arg0);
 	throw new Error("Function not implemented.");
 }
 
